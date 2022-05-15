@@ -1,0 +1,27 @@
+<form #form="ngForm"  (submit)="onSubmit(form)" autocomplete="off">
+    <h2 class="text-center text-primary">Unesite adresu</h2>
+
+    <div class="form-group">
+        <label>Opis stana</label>
+        <input class="form-control form-control-lg" placeholder="Opis stana"
+        name="apartmentDescription" #apartmentDescription="ngModel" [(ngModel)]="memberService.apformData.apartmentDescription" required>
+    </div>
+
+    <div class="form-group">
+        <label>Broj soba</label>
+        <input class="form-control form-control-lg" placeholder="Broj soba"
+        name="numberOfRooms" #numberOfRooms="ngModel" [(ngModel)]="memberService.apformData.numberOfRooms" required>
+    </div>
+
+    <div class="form-group">
+        <label>Mjesečna stanarina</label>
+        <input class="form-control form-control-lg" placeholder="Mjesečna stanarina"
+        name="monthlyPrice" #monthlyPrice="ngModel" [(ngModel)]="memberService.apformData.monthlyPrice" required>
+    </div>
+
+    <div class="form-group text-center">
+        <button class="btn btn-success mr-2" type="submit" [disabled]="form.invalid">Unesi</button>
+        <button class="btn btn-danger  mr-2" (click)="bsModalRef.hide()" type="button">Odustani</button>
+    </div>
+    
+</form>

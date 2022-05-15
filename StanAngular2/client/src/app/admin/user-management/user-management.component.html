@@ -1,0 +1,17 @@
+<div class="marginaTop">
+    <table class="table">
+        <tbody>
+        <tr class="table-secondary">
+            <th style = "width: 30%;">Korisničko ime</th>
+            <th style = "width: 40%;">Aktivne uloge</th>
+            <th style = "width: 30%;"></th>
+        </tr>
+        <tr class="table-secondary " *ngFor= "let user of users">
+            <td class="redic">{{user.username}}</td>
+            <td>{{user.roles}}</td>
+            <td><button (click)="openRolesModal(user)"class="btn btn-info">Uredi uloge</button></td>
+        </tr>
+        </tbody>
+    </table>
+    
+</div>

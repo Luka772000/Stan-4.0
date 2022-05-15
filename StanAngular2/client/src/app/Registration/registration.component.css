@@ -1,0 +1,13 @@
+.home1{
+    color: rgb(255, 255, 255);
+    margin-top: 20%;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 10px;
+}
+.register1,.register2{
+    border-radius: 10px;
+}
+.naslov{
+    margin-top:10%
+}

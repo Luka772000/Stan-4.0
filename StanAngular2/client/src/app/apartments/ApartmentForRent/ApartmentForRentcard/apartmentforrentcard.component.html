@@ -1,0 +1,11 @@
+<div class="card kartica bg-white">
+    <div class="card-img-wrapper">
+        <img src="{{apartment.photos[0]?.url}}" onerror="this.src='assets/NoImage.png'" class="slikta">
+    </div>
+    <div class="card-body p-2">
+        <p class=" card-title text-center mb-1">KM 
+         {{apartment.monthlyPrice}} <button mat-raised-button  (click)="openModal(apartment)" color="primary" >POGLEDAJ</button>
+        </p>
+        
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<!-- <form #form="ngForm"  (submit)="onSubmit(form)" autocomplete="off">
+    <h2 class="text-center text-primary">Unesite podatke o stanu</h2>
+
+    <div class="form-group col-md-6 adressCard">
+        <label>Grad</label>
+        <input class="form-control form-control-lg" placeholder="Ime grada"
+        name="city" #city="ngModel" [(ngModel)]="memberService.formData.city" required>
+    
+        <label>Ime ulice</label>
+        <input class="form-control form-control-lg"  name="streetName" #streetName="ngModel" placeholder="Ime ulice"
+        [(ngModel)]="memberService.formData.streetName" required >
+    </div>
+
+    <div class="form-group col-md-6 adressCard">
+        <label>Broj zgrade</label>
+        <input class="form-control form-control-lg" placeholder="Broj zgrade"
+        name="buildingNumber" #buildingNumber="ngModel" [(ngModel)]="memberService.formData.buildingNumber" required>
+    
+        <label>Broj stana</label>
+        <input class="form-control form-control-lg" placeholder="Broj stana"
+        name="apartmentNumber" #apartmentNumber="ngModel" [(ngModel)]="memberService.formData.apartmentNumber" required>
+    </div>
+
+    <div class="form-group text-center">
+        <button class="btn btn-success mr-2" type="submit" [disabled]="form.invalid">Unesi</button>
+        <button class="btn btn-danger  mr-2" (click) ="cancel()" type="button">Odustani</button>
+    </div>
+    
+</form> -->
+
+
+<form #form="ngForm"  (submit)="onSubmit(form)" autocomplete="off">
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput type="text" placeholder="Ime grada"
+                                        name="city" #city="ngModel" [(ngModel)]="memberService.formData.city" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input  name="streetName" #streetName="ngModel" placeholder="Ime ulice"
+                                      [(ngModel)]="memberService.formData.streetName" required type="text" matInput>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput  placeholder="Broj zgrade" name="buildingNumber" #buildingNumber="ngModel" [(ngModel)]="memberService.formData.buildingNumber" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Broj stana"
+                                    name="apartmentNumber" #apartmentNumber="ngModel" [(ngModel)]="memberService.formData.apartmentNumber" required>
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button class="btn btn-success col-md-3" type="submit" (click)="onSubmit(form)" [disabled]="form.invalid">Dodaj adresu</button>
+                            <button mat-raised-button class="btn btn-danger col-md-3" [disabled]="form.invalid" type="button" (click) ="cancel()" type="button">Odustani</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</form>

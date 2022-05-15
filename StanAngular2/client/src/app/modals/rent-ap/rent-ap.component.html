@@ -1,0 +1,19 @@
+<form #form="ngForm"  (submit)="onSubmit(form)" autocomplete="off">
+<div class="card kartica3 bg-white">
+    <div class="card-img-wrapper">
+        <img src="{{apartment.photos[0]?.url}}" onerror="this.src='assets/NoImage.png'" class="slikta">
+    </div>
+    <div class="card-body p-2">
+        <p class=" card-title text-center mb-1">Opis stana:
+            {{apartment.apartmentDescription}} 
+           </p>        
+        <p class=" card-title text-center mb-1">Cijena: {{apartment.monthlyPrice}} KM 
+        </p>
+           <p class=" card-title text-center mb-1">Broj soba:
+            {{apartment.numberOfRooms}} 
+           </p>
+           <button mat-raised-button color="primary" type="submit" >IZNAJMI</button> 
+        
+    </div>
+</div>
+</form>
