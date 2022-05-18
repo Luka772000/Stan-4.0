@@ -8,13 +8,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './Popups/register/register.component';
 import { MembersListComponent } from './apartments/ApartmentForRent/apartmentsforrent.component';
 import { MembersDetailComponent } from './apartments/apartmentEditPage/apartmentdetail.component';
 import { ListsComponent } from './Registration/registration.component';
-import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './_modules/shared.module';
 import { HasRoleDirective } from './_directives/has-role.directive';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
@@ -33,7 +31,8 @@ import { PhotoModalComponent } from './modals/photo-modal/photo-modal.component'
 import {MatDialogModule} from '@angular/material/dialog';
 import { MyApartmentCardComponent } from './apartments/myapartments/my-apartment-card/my-apartment-card.component';
 import {MatInputModule} from '@angular/material/input';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
+import { MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -73,7 +72,8 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
     FontAwesomeModule,
     NgbModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

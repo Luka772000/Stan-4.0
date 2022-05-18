@@ -4,36 +4,35 @@
 
     </div>
 
-    <form #form="ngForm"  (submit)="updateApartment(form)" autocomplete="off">
+    <form [formGroup]="apartmentForm"  (submit)="updateApartment()" autocomplete="off">
     <div class="main-content">
         <div class="container-fluid bg-white">
             <div class="row bg-white">
                 <div class="col-md-12 bg-white KART">
                     <div class="card bg-white">
                         <div class="card-body">
-                            <form>
+                            
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 form-group">
                                         <mat-form-field [style.width.%]=100>
-                                            <input matInput type="number" placeholder="Mjesečna stanarina"
-                                             value="{{apartment.monthlyPrice}}" name="monthlyPrice" #monthlyPrice="ngModel" [(ngModel)]="memberService.apformData.monthlyPrice" required>
+                                            <input matInput  placeholder="Mjesečna stanarina" formControlName="monthlyPrice" required>
                                         </mat-form-field>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 form-group">
                                         <mat-form-field [style.width.%]=100>
-                                          <input  type="number" placeholder="Broj soba" matInput  value="{{apartment.numberOfRooms}}"  name="numberOfRooms" #numberOfRooms="ngModel" [(ngModel)]="memberService.apformData.numberOfRooms" required>
+                                          <input   placeholder="Broj soba" matInput  formControlName="numberOfRooms" required>
                                         </mat-form-field>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 form-group">
                                       <mat-form-field [style.width.%]=100>
-                                        <input matInput placeholder="Opis stana"value="{{apartment.apartmentDescription}}" name="apartmentDescription" #apartmentDescription="ngModel" [(ngModel)]="memberService.apformData.apartmentDescription" required>
+                                        <input matInput placeholder="Opis stana"formControlName="apartmentDescription"  required>
                                       </mat-form-field>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
-                            </form>
+                            
                             
                         </div>
                     </div>

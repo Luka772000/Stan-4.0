@@ -58,8 +58,8 @@ export class MembersService {
   unRentApartment(){
     return this.http.put(`https://localhost:44329/api/Users/CancelRent?apartmentId=${this.reApformData.apartmentId}`,this.reApformData)
   }
-  updateApartment(){
-    return this.http.put(`https://localhost:44329/api/Users/UpdateApartment?apartmentId=${this.apformData.id}`,this.apformData)
+  updateApartment(apartmentForm){
+    return this.http.put(`https://localhost:44329/api/Users/UpdateApartment?apartmentId=${this.apformData.id}`,apartmentForm)
   }
 }
 

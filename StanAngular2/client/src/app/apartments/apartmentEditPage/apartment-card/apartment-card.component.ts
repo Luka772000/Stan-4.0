@@ -7,7 +7,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInfo} from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoModalComponent } from 'src/app/modals/photo-modal/photo-modal.component';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/_services/account.service';
 import { MembersService } from 'src/app/_services/members.service';
@@ -20,16 +20,24 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./apartment-card.component.css']
 })
 export class ApartmentCardComponent implements OnInit {
+  apartmentForm: FormGroup;
+  AdressShow = false;
+  AdressMode=false
+  model: any={}
+  @Input() public apartment: Apartment;
+  bsModalRef: BsModalRef;
 
-AdressShow = false;
-AdressMode=false
-
-// @Output() public apartmentt= new EventEmitter<any>();
-@Input() public apartment: Apartment;
-bsModalRef: BsModalRef;
   constructor(private router: Router,public accService:AccountService, public memberService:MembersService,private toastr:  ToastrService,private modalService:BsModalService) {library.add(faInfo); }
 
   ngOnInit( ): void {
+    this.initializeForm();
+  }
+  initializeForm(){
+    this.apartmentForm= new FormGroup({
+      monthlyPrice: new FormControl(this.apartment.monthlyPrice, Validators.required),
+      numberOfRooms: new FormControl(this.apartment.numberOfRooms, Validators.required),
+      apartmentDescription: new FormControl(this.apartment.apartmentDescription, Validators.required),
+    })
   }
   openDialog(apartment: Apartment){
     const config={
@@ -53,13 +61,16 @@ bsModalRef: BsModalRef;
   cancelAddressMode(event: boolean) {
     this.AdressShow = !this.AdressShow;
   }
-  updateApartment(form:NgForm){
+  updateApartment(){
+    this.model=this.apartmentForm.value
     this.memberService.apformData.id=this.apartment.id
-    this.memberService.updateApartment().subscribe(
+    
+    this.memberService.updateApartment(this.model).subscribe(
       res =>{
+        
         this.memberService.apformData = new ApartmentClass();
         this.toastr.success('Stan je uspješno izmijenjen')
-        // window.location.reload();
+        window.setTimeout(function(){location.reload()},2000)
         
       },
       err =>{console.log(err);

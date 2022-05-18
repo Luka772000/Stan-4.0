@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { Apartment, RentApartmentClass } from 'src/app/_models/apartment';
 import { User } from 'src/app/_models/user';
@@ -15,7 +15,8 @@ import { MembersService } from 'src/app/_services/members.service';
 })
 export class MyApartmentCardComponent implements OnInit {
   @Input() apartment: Apartment;
-  constructor(private router: Router,public accService:AccountService, public memberService:MembersService,private toastr: ToastrService) { }
+  bsModalRef: BsModalRef;
+  constructor(public modalService:BsModalService,private router: Router,public accService:AccountService, public memberService:MembersService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +29,15 @@ export class MyApartmentCardComponent implements OnInit {
     this.memberService.reApformData.apartmentId=this.apartment.id
     this.unRentApartment(form)
   
+  }
+  openModalComment(apartment: Apartment){
+    const config = {
+      class: 'modal-dialog-centered',
+      initialState: {
+        apartment
+      }
+    }
+    this.bsModalRef = this.modalService.show(RentApComponent, config); 
   }
   unRentApartment(form:NgForm){
 
